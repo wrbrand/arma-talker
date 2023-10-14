@@ -1,7 +1,8 @@
 # based on Arma2 voice commands script by Suchy
 
-# Keys in SUBJECTS can have no more than 2 words
-SUBJECTS = {
+# Keys in SUBJECTS can have no more than 2 words # TODO: Enforce
+# All items in the value lists must be keys of pydirectinput.KEYBOARD_MAPPING # TODO: Enforce
+SUBJECTS: dict[str, list[str]] = {
     "all": ["`"],
     "i\'ll": ["`"],
     "everyone": ["`"],
@@ -39,9 +40,26 @@ SUBJECTS = {
     "number 12": ["f12", "f2", "f11"],
     "13": ["f12", "f3", "f11"],
     "number 13": ["f12", "f3", "f11"],
+
+    # Teams
+    "red": ["9", "9", "1"],
+    "team red": ["9", "9", "1"],
+    "red team": ["9", "9", "1"],
+    "green": ["9", "9", "2"],
+    "team green": ["9", "9", "2"],
+    "green team": ["9", "9", "2"],
+    "blue": ["9", "9", "3"],
+    "team blue": ["9", "9", "3"],
+    "blue team": ["9", "9", "3"],
+    "yellow": ["9", "9", "4"],
+    "team yellow": ["9", "9", "4"],
+    "yellow team": ["9", "9", "4"],
+    "white": ["9", "9", "1"],
+    "team white": ["9", "9", "1"],
+    "white team": ["9", "9", "1"],
 }
 
-COMMANDS = {
+COMMANDS: dict[str, list[str]] = {
     "go there": [" "],
     "go here": [" "],
     "move there": [" "],
@@ -135,25 +153,148 @@ COMMANDS = {
     "keep low": ["7", "9"],
     "copy my stance": ["7", "9"],
     "follow my lead": ["7", "9"],
+
+    # Reply
+    "done": ["backspace", "0", "1"],
+    "i\'m done": ["backspace", "0", "1"],
+    "waiting for orders": ["backspace", "0", "1"],
+    "waiting": ["backspace", "0", "1"],
+    "i\'m waiting": ["backspace", "0", "1"],
+    "ready": ["backspace", "0", "1"],
+    "i\'m ready": ["backspace", "0", "1"],
+    "ready and waiting": ["backspace", "0", "1"],
+    "negative": ["backspace", "0", "2"],
+    "sorry can\'t do that": ["backspace", "0", "2"],
+    "sorry no can do": ["backspace", "0", "2"],
+    "can\'t do that": ["backspace", "0", "2"],
+    "can\'t do it": ["backspace", "0", "2"],
+    "no can do": ["backspace", "0", "2"],
+
+    "ready to fire": ["backspace", "0", "3"],
+    "eyes on target": ["backspace", "0", "3"],
+    "target in sight": ["backspace", "0", "3"],
+    "target inside": ["backspace", "0", "3"],
+    "turn it inside": ["backspace", "0", "3"],
+
+    "cannot fire": ["backspace", "0", "4"],
+    "can\'t see the target": ["backspace", "0", "4"],
+    "i can\'t see the target": ["backspace", "0", "4"],
+    "i don\'t see the target": ["backspace", "0", "4"],
+    "no line of fire": ["backspace", "0", "4"],
+
+    "repeat last": ["backspace", "0", "6"],
+    "repeat": ["backspace", "0", "6"],
+    "say again over": ["backspace", "0", "6"],
+    "say again": ["backspace", "0", "6"],
+    "didn\'t copy": ["backspace", "0", "6"],
+
+    # Formation
+    "stay in formation": ["1", "1"],
+    "stay close": ["1", "1"],
+    "stick close": ["1", "1"],
+    "keep formation": ["1", "1"],
+    "return to formation": ["1", "1"],
+    "back to formation": ["1", "1"],
+    "regroup": ["1", "1"],
+    "follow me": ["1", "1"],
+    "get back": ["1", "1"],
+    "get back here": ["1", "1"],
+    "fall back": ["1", "1"],
+    "fall back to formation": ["1", "1"],
+    "fall back into formation": ["1", "1"],
+    "form up": ["1", "1"],
+    "return": ["1", "1"],
+    "form on me": ["1", "1"],
+
+    "advance": ["1", "2"],
+    "take point": ["1", "2"],
+    "you take point": ["1", "2"],
+
+    "push up": ["1", "3"],
+    "stay back": ["1", "3"],
+    "go back": ["1", "3"],
+    "stay behind": ["1", "3"],
+    "keep the distance": ["1", "3"],
+    "keep a distance": ["1", "3"],
+    "keep back": ["1", "3"],
+    "keep behind": ["1", "3"],
+
+    "flank left": ["1", "4"],
+    "take the left flank": ["1", "4"],
+    "flank right": ["1", "5"],
+    "take the right flank": ["1", "5"],
+
+    "stop": ["1", "6"],
+    "halt": ["1", "6"],
+    "stay here": ["1", "6"],
+    "don\'t move": ["1", "6"],
+    "stop where you are": ["1", "6"],
+    "stay where you are": ["1", "6"],
+    "stay there": ["1", "6"],
+    "stop there": ["1", "6"],
+
+    "wait": ["1", "7"],
+    "wait for me": ["1", "7"],
+    "hold on": ["1", "7"],
+    "let me catch up": ["1", "7"],
+
+    "find cover": ["1", "8"],
+    "find some cover": ["1", "8"],
+    "get to cover": ["1", "8"],
+    "take cover": ["1", "8"],
+
+    "next waypoint": ["1", "9"],
+    "head to next waypoint": ["1", "9"],
+    "head to the next waypoint": ["1", "9"],
+    "move to next waypoint": ["1", "9"],
+    "move to the next waypoint": ["1", "9"],
+    "go to next waypoint": ["1", "9"],
+    "go to the next waypoint": ["1", "9"],
+    "proceed to next waypoint": ["1", "9"],
+    "proceed to the next waypoint": ["1", "9"],
+
+     # Teams
+    "assign red": ["9", "1"],
+    "your red": ["9", "1"],
+    "your team red": ["9", "1"],
+    "your red team": ["9", "1"],
+    "you\'re red": ["9", "1"],
+    "you\'re team red": ["9", "1"],
+    "you\'re red team": ["9", "1"],
+
+    "assign green": ["9", "2"],
+    "your green": ["9", "2"],
+    "your team green": ["9", "2"],
+    "your green team": ["9", "2"],
+    "you\'re green": ["9", "2"],
+    "you\'re team green": ["9", "2"],
+    "you\'re green team": ["9", "2"],
+
+    "assign blue": ["9", "3"],
+    "your blue": ["9", "3"],
+    "your team blue": ["9", "3"],
+    "your blue team": ["9", "3"],
+    "you\'re blue": ["9", "3"],
+    "you\'re team blue": ["9", "3"],
+    "you\'re blue team": ["9", "3"],
+
+    "assign yellow": ["9", "4"],
+    "your yellow": ["9", "4"],
+    "your team yellow": ["9", "4"],
+    "your yellow team": ["9", "4"],
+    "you\'re yellow": ["9", "4"],
+    "you\'re team yellow": ["9", "4"],
+    "you\'re yellow team": ["9", "4"],
+
+    "assign white": ["9", "5"],
+    "your white": ["9", "5"],
+    "your team white": ["9", "5"],
+    "your white team": ["9", "5"],
+    "you\'re white": ["9", "5"],
+    "you\'re team white": ["9", "5"],
+    "you\'re white team": ["9", "5"],
 }
 
-#
-# //Reply
-# key.0,key.1=said("done",6)
-# key.0,key.1=said("i'm done",5)
-# key.0,key.1=said("waiting for orders")
-# key.0,key.1=said("waiting")
-# key.0,key.1=said("i'm waiting")
-# key.0,key.1=said("ready",5)
-# key.0,key.1=said("I'm ready",5)
-#
-# key.0,key.2=said("Negative") or said("Can't do that") or said("I'm sorry, Dave. I'm afraid I can't do that.") or said("No can do")
-#
-# key.0,key.3=said("ready to fire") or said("eyes on target") or said("target in sight")
-# key.0,key.4=said("cannot fire") or said("no line of fire") or said("I can't see the target") or said("I don't see the target")
-#
-# key.0,key.6=said("Repeat",5) or said("Repeat last",1) or said("didn't copy")
-#
 # //Mount
 # key.enter=said("get inside that",1)
 # key.enter=said("get in that",1)
@@ -281,58 +422,3 @@ COMMANDS = {
 # key.8,key.9=said("give me a delta") or said("form delta") or said("formation delta")
 # key.8,key.9=said("give me a diamond") or said("form diamond") or said("formation diamond")
 #
-# //movement
-# key.Enter = said("Go there")
-# key.Enter = said("Move there")
-# key.Enter = said("Take that position")
-# key.Enter = said("Go over there")
-# key.Enter = said("Move over there")
-# key.Enter = said("Move to that",1)
-# key.Enter = said("Go to that",1)
-#
-# key.1,key.1 = said("stay in formation")
-# key.1,key.1 = said("stay close")
-# key.1,key.1 = said("keep formation")
-# key.1,key.1 = said("return to formation")
-# key.1,key.1 = said("back to formation")
-# key.1,key.1 = said("regroup",4)
-# key.1,key.1 = said("follow me")
-# key.1,key.1 = said("get back",4)
-# key.1,key.1 = said("fall back",5)
-# key.1,key.1 = said("fall back to formation")
-# key.1,key.1 = said("fall back into formation")
-# key.1,key.1 = said("form up")
-# key.1,key.1 = said("return",5)
-# key.1,key.1 = said("form on me")
-#
-# key.1,key.2 = said("Advance",5) or said("Take point") or said ("Push up")
-# key.1,key.3 = said("Stay back",5) or said("Go back",5) or said ("Stay behind") or said ("keep the distance")
-# key.1,key.4 = said("Flank left") or said("Take the left flank")
-# key.1,key.5 = said("Flank right") or said("Take the right flank")
-#
-# key.1,key.6 = said("Stop",5) or said("Halt",5) or said("Stay here",5)
-# key.1,key.6 = said("Don't move") or said("Stay where you are") or said("Stay there",5)
-#
-# key.1,key.7 = said("Wait") or said("Wait for me",5) or said("Hold on",5)
-# key.1,key.7 = said("Let me catch up")
-#
-# key.1,key.8 = said("Find cover") or said("Get to cover") or said("Take cover")
-#
-# key.1,key.9 = said("Next waypoint")
-# key.1,key.9 = said("Move to next waypoint")
-# key.1,key.9 = said("Go to next waypoint")
-# key.1,key.9 = said("Proceed to next waypoint")
-#
-# //Team assignment
-# key.9,key.1=said("Assign red") or said("You are red") or said("you're team red")
-# key.9,key.2=said("Assign green") or said("You are green") or said("you're team green")
-# key.9,key.3=said("Assign blue") or said("You are blue") or said("you're team blue")
-# key.9,key.4=said("Assign yellow") or said("You are yellow") or said("you're team yellow")
-# key.9,key.5=said("Assign white") or said("You are white") or said("you're team white")
-#
-# //Team selection
-# key.9,key.9,key.1=said("Team red") or said("Red",5)
-# key.9,key.9,key.2=said("Team green") or said("Green",5)
-# key.9,key.9,key.3=said("Team blue") or said("Blue",5)
-# key.9,key.9,key.4=said("Team yellow") or said("Yellow",5)
-# key.9,key.9,key.5=said("Team white") or said("White",5)
