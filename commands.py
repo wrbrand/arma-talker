@@ -166,6 +166,7 @@ COMMANDS: dict[str, list[str]] = {
     "stealth": ["7", "1"],
     "be quiet": ["7", "1"],
     "keep quiet": ["7", "1"],
+    "stay quiet": ["7", "1"],
 
     "danger": ["7", "2"],
     "get ready to fight": ["7", "2"],
