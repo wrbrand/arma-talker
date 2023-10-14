@@ -127,9 +127,11 @@ COMMANDS: dict[str, list[str]] = {
     "coordinates": ["5", "5"],
     "send coordinates": ["5", "5"],
     "send sitrep": ["5", "5"],
+    "sitrep": ["5", "5"],
     "what\'s your status": ["5", "5"],
     "where are you": ["5", "5"],
     "status report": ["5", "5"],
+    "give me a status report": ["5", "5"],
     "do you read": ["5", "5"],
 
     "taking fire": ["5", "6"],
