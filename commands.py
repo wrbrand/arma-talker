@@ -96,6 +96,7 @@ COMMANDS: dict[str, list[str]] = {
     "engage at will": ["3", "5"],
     "disengage": ["3", "6"],
     "scan horizon": ["3", "7"],
+    "scan the horizon": ["3", "7"],
     "look around": ["3", "7"],
 
     "watch north": ["3", "8", "1"],
