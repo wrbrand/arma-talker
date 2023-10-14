@@ -1,19 +1,25 @@
 # based on Arma2 voice commands script by Suchy
 
-from pynput.keyboard import Key
-
-COMMANDS = {
+# Keys in SUBJECTS can have no more than 2 words
+SUBJECTS = {
     "all": ["`"],
+    "i\'ll": ["`"],
     "everyone": ["`"],
     "everybody": ["`"],
     "squad": ["`"],
     "2": ["f2"],
+    "to": ["f2"],
     "number two": ["f2"],
     "3": ["f3"],
+    "three": ["f3"],
     "number three": ["f3"],
+    "or": ["f4"],
     "4": ["f4"],
+    "for": ["f4"],
+    "four": ["f4"],
     "number four": ["f4"],
     "5": ["f5"],
+    "five": ["f5"],
     "number five": ["f5"],
     "6": ["f6"],
     "sex": ["f6"],
@@ -33,12 +39,30 @@ COMMANDS = {
     "number 12": ["f12", "f2", "f11"],
     "13": ["f12", "f3", "f11"],
     "number 13": ["f12", "f3", "f11"],
+}
+
+COMMANDS = {
+    "go there": [" "],
+    "go here": [" "],
+    "move there": [" "],
+    "move here": [" "],
+    "move up": [" "],
+    "take that position": [" "],
+    "go over there": [" "],
+    "go over here": [" "],
+    # "go to that": [" "], # TODO
+    # "go to the": [" "], # TODO
+
     "target that": ["enter"],
     "attack that": ["enter"],
+    "attack here": ["enter"],
     "watch there": ["enter"],
     "watch that": ["enter"],
+    "watch here": ["enter"],
+
     "open fire": ["3", "1"],
     "clear to engage": ["3", "1"],
+    "free to engage": ["3", "1"],
     "weapons hot": ["3", "1"],
     "weapons free": ["3", "1"],
     "fire at will": ["3", "1"],
@@ -55,44 +79,64 @@ COMMANDS = {
     "disengage": ["3", "6"],
     "scan horizon": ["3", "7"],
     "look around": ["3", "7"],
-    "go there": [" "],
-    "move there": [" "],
-    "take that position": [" "],
-    "go over there": [" "],
-    "go to that": [" "],
-    "go to the": [" "],
+
+    "watch north": ["3", "8", "1"],
+    "watch northeast": ["3", "8", "2"],
+    "watch east": ["3", "8", "3"],
+    "watch southeast": ["3", "8", "4"],
+    "watch south": ["3", "8", "5"],
+    "watch southwest": ["3", "8", "6"],
+    "watch west": ["3", "8", "7"],
+    "watch northwest": ["3", "8", "8"],
+
+    "suppressive fire": ["3", "9"],
+    "suppressing fire": ["3", "9"],
+    "lay down some fire": ["3", "9"],
+    "give me a base of fire": ["3", "9"],
+    "and its suppressing fire": ["3", "9"],
+    "and its suppressive fire": ["3", "9"],
+    "i need suppressive fire": ["3", "9"],
+    "i need suppressing fire": ["3", "9"],
+
+    # Combat mode
+    "stealth": ["7", "1"],
+    "be quiet": ["7", "1"],
+    "keep quiet": ["7", "1"],
+
+    "danger": ["7", "2"],
+    "get ready to fight": ["7", "2"],
+    "get ready for combat": ["7", "2"],
+
+    "be alert": ["7", "3"],
+    "be aware": ["7", "3"],
+    "stay alert": ["7", "3"],
+    "stay aware": ["7", "3"],
+    "stay frosty": ["7", "3"],
+    "watch out": ["7", "2"],
+
+    "at ease": ["7", "4"],
+    "safe": ["7", "4"],
+    "it's safe": ["7", "4"],
+
+    "get up": ["7", "6"],
+    "stand up": ["7", "6"],
+    "up and adam": ["7", "6"],
+    "on your feet": ["7", "6"],
+
+    "crouch": ["7", "7"],
+    "stay crouched": ["7", "7"],
+    "heads low": ["7", "7"],
+
+    "get down": ["7", "8"],
+    "go prone": ["7", "8"],
+    "hit the dirt": ["7", "8"],
+    "on the ground": ["7", "8"],
+
+    "keep low": ["7", "9"],
+    "copy my stance": ["7", "9"],
+    "follow my lead": ["7", "9"],
 }
 
-# key.3,key.8,key.1=said("watch North")
-# key.3,key.8,key.2=said("watch Northeast")
-# key.3,key.8,key.3=said("watch East")
-# key.3,key.8,key.4=said("watch Southeast")
-# key.3,key.8,key.5=said("watch South")
-# key.3,key.8,key.6=said("watch Southwest")
-# key.3,key.8,key.7=said("watch West")
-# key.3,key.8,key.8=said("watch Northwest")
-#
-# key.3,key.9=said("Suppressive fire") or said("I need suppressive fire")
-#
-# //Combat mode
-# key.7,key.1=said("stealth",5)
-# key.7,key.1=said("be quiet",5)
-# key.7,key.1=said("keep quiet",5)
-#
-# key.7,key.2=said("danger")
-# key.7,key.2=said("get ready to fight")
-# key.7,key.2=said("get ready for combat")
-#
-# key.7,key.3=said("stay aware") or said("be aware")
-# key.7,key.3=said("stay frosty")
-# key.7,key.3=said("stay alert") or said("be alert")
-#
-# key.7,key.4=said("at ease") or said("it's safe") or said("safe",5)
-#
-# key.7,key.6=said("get up",5) or said("stand up") or said("on your feet")
-# key.7,key.7=said("crouch",5) or said("stay crouched") or said("heads low")
-# key.7,key.8=said("get down",5) or said("go prone") or said("hit the dirt") or said("on the ground")
-# key.7,key.9=said("keep low") or said("copy my stance") or said("follow my lead")
 #
 # //Reply
 # key.0,key.1=said("done",6)

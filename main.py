@@ -10,7 +10,7 @@ from pynput.keyboard import Key, Listener
 import pydirectinput
 import speech_recognition as sr
 from time import sleep
-from commands import COMMANDS
+from commands import COMMANDS, SUBJECTS
 
 CREDENTIALS_FILE = '.credentials'
 
@@ -25,14 +25,35 @@ def listen(text_queue: Queue) -> None:
 
 def print_text(queue: Queue):
     while text := queue.get():
-        # TODO: Match two statements in the same text
+        # TODO: Match two statements in the same text, like, elegantly and stuff. This is the dumb way.
+        # Major assumption: text = <subject> | <subject> <command> | <command>
+        parts = text.split(' ')
+
+        # Look for a subject matching the beginning of the text
         try:
-            commands = COMMANDS[text]
+            potential_subject = parts[0]
+            pydirectinput.press(SUBJECTS[potential_subject])
+            print(f"Match: {potential_subject} to subject {SUBJECTS[potential_subject]}")
+            parts = parts[1:]
+        except KeyError:
+            print(f"No 1-word subject match for {potential_subject}")
+            potential_subject = ' '.join(parts[0:2])
+            try:
+                pydirectinput.press(SUBJECTS[potential_subject])
+                print(f"Match: {potential_subject} to subject {SUBJECTS[potential_subject]}")
+                parts = parts[2:]
+            except KeyError:
+                print(f"No 2-word subject match for {potential_subject}")
+
+        # Look for a command matching the remaining text
+        potential_command = ' '.join(parts)
+        try:
+            commands = COMMANDS[potential_command]
             for command in commands:
-                print(f"Match: {text} to {command}")
+                print(f"Match: {potential_command} to command {command}")
                 pydirectinput.press(command)
         except KeyError:
-            print(f"No match: {text}")
+            print(f"No match: {potential_command}")
 
 
 class SpeechAgent:
