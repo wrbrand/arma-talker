@@ -116,6 +116,49 @@ COMMANDS: dict[str, list[str]] = {
     "i need suppressive fire": ["3", "9"],
     "i need suppressing fire": ["3", "9"],
 
+    # Reports
+    "report status": ["5", "5"],
+    "report in": ["5", "5"],
+    "status": ["5", "5"],
+    "location": ["5", "5"],
+    "what\'s your location": ["5", "5"],
+    "position": ["5", "5"],
+    "what\'s your position": ["5", "5"],
+    "coordinates": ["5", "5"],
+    "send coordinates": ["5", "5"],
+    "send sitrep": ["5", "5"],
+    "what\'s your status": ["5", "5"],
+    "where are you": ["5", "5"],
+    "status report": ["5", "5"],
+    "do you read": ["5", "5"],
+
+    "taking fire": ["5", "6"],
+    "under fire": ["5", "6"],
+    "help me out": ["5", "6"],
+    "give me a hand": ["5", "6"],
+    "i could use some help": ["5", "6"],
+    "i\'m under fire": ["5", "6"],
+
+    "enemy down": ["5", "7"],
+    "he\'s down": ["5", "7"],
+    "he\'s history": ["5", "7"],
+    "soldier is history": ["5", "7"],
+    "scratch one": ["5", "7"],
+    "tango down": ["5", "7"],
+    "hostile down": ["5", "7"],
+    "target destroyed": ["5", "7"],
+    "target neutralized": ["5", "7"],
+    "target eliminated": ["5", "7"],
+    "hostile eliminated": ["5", "7"],
+
+    "is down": ["5", "8"],
+    "are down": ["5", "8"],
+
+    "report targets": ["5", "9"],
+    "report enemies": ["5", "9"],
+    "do you see anything": ["5", "9"],
+    "what do you see": ["5", "9"],
+
     # Combat mode
     "stealth": ["7", "1"],
     "be quiet": ["7", "1"],
@@ -356,41 +399,7 @@ COMMANDS: dict[str, list[str]] = {
 # key.5,key.4=said("Injuried") or said("I need medic") or said ("Medic")
 # key.5,key.4=said("I'm wounded") or said("I'm hit") or said ("I've been hit")
 #
-# key.5,key.5=said("Report status")
-# key.5,key.5=said("Status")
-# key.5,key.5=said("location")
-# key.5,key.5=said("what's your location")
-# key.5,key.5=said("position")
-# key.5,key.5=said("what's your position")
-# key.5,key.5=said("coordinates")
-# key.5,key.5=said("send coordinates")
-# key.5,key.5=said("send sitrep")
-# key.5,key.5=said("what's your status")
-# key.5,key.5=said("where are you")
-# key.5,key.5=said("status report")
-# key.5,key.5=said("Do you read")
-#
-# key.5,key.6=said("Under fire")
-# key.5,key.6=said("Help me out")
-# key.5,key.6=said("Taking fire")
-# key.5,key.6=said("Give me a hand")
-# key.5,key.6=said("I'm under fire")
-#
-# key.5,key.7=said("Enemy down")
-# key.5,key.7=said("I got him")
-# key.5,key.7=said("Soldier is history")
-# key.5,key.7=said("He's history")
-# key.5,key.7=said("Scratch one")
-# key.5,key.7=said("Tango down")
-# key.5,key.7=said("Hostile down")
-# key.5,key.7=said("Target destroyed")
-# key.5,key.7=said("Target neutralized")
-# key.5,key.7=said("Target eliminated")
-# key.5,key.7=said("Hostile eliminated")
-#
-# key.5,key.8=said("Is down") or said("Are down")
-#
-# key.5,key.9=said("Report targets") or said("Report enemies")
+
 #
 #
 # //Action (unfortunately it's mostly context)
