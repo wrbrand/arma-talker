@@ -1,0 +1,288 @@
+/*
+* Arma2 voice commands script by Suchy
+*
+* Say "enable voice commands" to begin.
+*/
+
+if said("enable voice commands") or said("listen",5) or said("begin listening") then
+  var.listen=true
+  say("voice commands enabled")
+end if
+
+if said("disable voice commands") or said("don't listen",5) or said("stop listening") then
+  var.listen=false
+  say("voice commands disabled")
+end if
+
+if var.listen ==true then
+
+//Unit selection
+key.Console =(said("all",1) or said("squad",1) or said("everyone",1) or said("everybody",1))
+key.F2 = said("2",1) or said("number 2")
+key.F3 = said("3",1) or said("number 3")
+key.F4 = said("4",1) or said("number 4")
+key.F5 = said("5",1) or said("number 5")
+key.F6 = said("6",1) or said("number 6")
+key.F7 = said("7",1) or said("number 7")
+key.F8 = said("8",1) or said("number 8")
+key.F9 = said("9",1) or said("number 9")
+key.F10 = said("10",1) or said("number 10")
+key.F12,key.F1,key.F11 = said("11",1) or said("number 11")
+key.F12,key.F2,key.F11 = said("12",1) or said("number 12")
+key.F12,key.F3,key.F11 = said("13",1) or said("number 13")
+
+//Engage
+key.enter=said("target that",1) or said("attack that",1)
+alt+enter=said("watch there") or said("watch that",1)
+
+key.3,key.1=said("open fire")
+key.3,key.1=said("clear to engage")
+key.3,key.1=said("clear to fire")
+key.3,key.1=said("weapons hot")
+key.3,key.1=said("weapons free")
+key.3,key.1=said("fire at will")
+
+key.3,key.2=said("hold fire")
+key.3,key.2=said("hold your fire")
+key.3,key.2=said("ceasefire")
+key.3,key.2=said("cease fire")
+key.3,key.2=said("don't shoot")
+key.3,key.2=said("stop shooting")
+
+key.3,key.3=said("fire",6) or said("shoot")
+key.3,key.4=said("engage",5)
+key.3,key.5=said("engage at will")
+key.3,key.6=said("disengage")
+key.3,key.7=said("scan horizon") or said("look around")
+
+key.3,key.8,key.1=said("watch North")
+key.3,key.8,key.2=said("watch Northeast")
+key.3,key.8,key.3=said("watch East")
+key.3,key.8,key.4=said("watch Southeast")
+key.3,key.8,key.5=said("watch South")
+key.3,key.8,key.6=said("watch Southwest")
+key.3,key.8,key.7=said("watch West")
+key.3,key.8,key.8=said("watch Northwest")
+
+key.3,key.9=said("Suppressive fire") or said("I need suppressive fire")
+
+//Combat mode
+key.7,key.1=said("stealth",5)
+key.7,key.1=said("be quiet",5)
+key.7,key.1=said("keep quiet",5)
+
+key.7,key.2=said("danger")
+key.7,key.2=said("get ready to fight")
+key.7,key.2=said("get ready for combat")
+
+key.7,key.3=said("stay aware") or said("be aware")
+key.7,key.3=said("stay frosty")
+key.7,key.3=said("stay alert") or said("be alert")
+
+key.7,key.4=said("at ease") or said("it's safe") or said("safe",5)
+
+key.7,key.6=said("get up",5) or said("stand up") or said("on your feet")
+key.7,key.7=said("crouch",5) or said("stay crouched") or said("heads low")
+key.7,key.8=said("get down",5) or said("go prone") or said("hit the dirt") or said("on the ground")
+key.7,key.9=said("keep low") or said("copy my stance") or said("follow my lead")
+
+//Reply
+key.0,key.1=said("done",6)
+key.0,key.1=said("i'm done",5)
+key.0,key.1=said("waiting for orders")
+key.0,key.1=said("waiting")
+key.0,key.1=said("i'm waiting")
+key.0,key.1=said("ready",5)
+key.0,key.1=said("I'm ready",5)
+
+key.0,key.2=said("Negative") or said("Can't do that") or said("I'm sorry, Dave. I'm afraid I can't do that.") or said("No can do")
+
+key.0,key.3=said("ready to fire") or said("eyes on target") or said("target in sight")
+key.0,key.4=said("cannot fire") or said("no line of fire") or said("I can't see the target") or said("I don't see the target")
+
+key.0,key.6=said("Repeat",5) or said("Repeat last",1) or said("didn't copy")
+
+//Mount
+key.enter=said("get inside that",1)
+key.enter=said("get in that",1)
+key.enter=said("board that",1)
+key.enter=said("mount that",1)
+
+key.4,key.2,key.1=said("get inside",5)
+key.4,key.2,key.1=said("get in",5)
+
+
+key.4,key.2,key.2=said("you're driver")
+key.4,key.2,key.2=said("you drive")
+key.4,key.2,key.2=said("you're driving")
+key.4,key.2,key.2=said("take driver position")
+key.4,key.2,key.2=said("take driver seat")
+key.4,key.2,key.2=said("grab the wheel")
+key.4,key.2,key.2=said("driver get in")
+key.4,key.2,key.2=said("driver",5)
+key.4,key.2,key.2=said("you're pilot")
+key.4,key.2,key.2=said("take pilot position")
+key.4,key.2,key.2=said("take pilot seat")
+key.4,key.2,key.2=said("grab the stick")
+key.4,key.2,key.2=said("pilot get in")
+key.4,key.2,key.2=said("pilot",5)
+
+key.4,key.2,key.4=said("you're gunner")
+key.4,key.2,key.4=said("take gunner position")
+key.4,key.2,key.4=said("get on the gun")
+key.4,key.2,key.4=said("take the gun")
+key.4,key.2,key.4=said("mount the gun")
+key.4,key.2,key.4=said("gunner get in")
+key.4,key.2,key.4=said("gunner",5)
+
+key.4,key.1=said("disembark")
+key.4,key.1=said("dismount")
+key.4,key.1=said("get out")
+key.4,key.1=said("out of the vehicle")
+key.4,key.1=said("get out of the vehicle")
+
+//Status
+key.5,key.1,key.1=said("Requesting medic support")
+key.5,key.1,key.1=said("Request medic support")
+key.5,key.1,key.1=said("Requesting medical support")
+key.5,key.1,key.1=said("Request medical support")
+key.5,key.1,key.2=said("Requesting ambulance")
+key.5,key.1,key.2=said("Requesting ambulance support")
+key.5,key.1,key.2=said("Request ambulance")
+key.5,key.1,key.3=said("Requesting repair truck")
+key.5,key.1,key.3=said("Requesting repair")
+key.5,key.1,key.4=said("Requesting ammo support")
+key.5,key.1,key.4=said("Requesting ammunition support")
+key.5,key.1,key.4=said("Requesting ammo")
+key.5,key.1,key.5=said("Requesting ammunition")
+key.5,key.1,key.5=said("Requesting fuel support")
+key.5,key.1,key.5=said("Requesting fuel truck")
+
+key.5,key.2=said("Fuel low") or said("I'm out of fuel") or said ("Out of fuel")
+key.5,key.3=said("Ammo low") or said("I need ammo") or said ("I need ammunition")
+key.5,key.4=said("Injuried") or said("I need medic") or said ("Medic")
+key.5,key.4=said("I'm wounded") or said("I'm hit") or said ("I've been hit")
+
+key.5,key.5=said("Report status")
+key.5,key.5=said("Status")
+key.5,key.5=said("location")
+key.5,key.5=said("what's your location")
+key.5,key.5=said("position")
+key.5,key.5=said("what's your position")
+key.5,key.5=said("coordinates")
+key.5,key.5=said("send coordinates")
+key.5,key.5=said("send sitrep")
+key.5,key.5=said("what's your status")
+key.5,key.5=said("where are you")
+key.5,key.5=said("status report")
+key.5,key.5=said("Do you read")
+
+key.5,key.6=said("Under fire")
+key.5,key.6=said("Help me out")
+key.5,key.6=said("Taking fire")
+key.5,key.6=said("Give me a hand")
+key.5,key.6=said("I'm under fire")
+
+key.5,key.7=said("Enemy down")
+key.5,key.7=said("I got him")
+key.5,key.7=said("Soldier is history")
+key.5,key.7=said("He's history")
+key.5,key.7=said("Scratch one")
+key.5,key.7=said("Tango down")
+key.5,key.7=said("Hostile down")
+key.5,key.7=said("Target destroyed")
+key.5,key.7=said("Target neutralized")
+key.5,key.7=said("Target eliminated")
+key.5,key.7=said("Hostile eliminated")
+
+key.5,key.8=said("Is down") or said("Are down")
+
+key.5,key.9=said("Report targets") or said("Report enemies")
+
+
+//Action (unfortunately it's mostly context)
+key.6,key.1=said("heal",3) or said("heal me") or said("heal him") or said("heal that",1)
+key.6=said("action")
+key.1=said("option 1")
+key.2=said("option 2")
+key.3=said("option 3")
+key.4=said("option 4")
+key.5=said("option 5")
+key.6=said("option 6")
+key.7=said("option 7")
+key.8=said("option 8")
+key.9=said("option 9")
+key.0=said("option 0")
+
+
+//Formation
+key.8,key.1=said("give me a column") or said("form column") or said("formation column")
+key.8,key.2=said("give me a staggered column") or said("form staggered column") or said("formation staggered column")
+key.8,key.2=said("give me a double column") or said("form double column") or said("formation double column")
+key.8,key.3=said("give me a wedge") or said("form wedge") or said("formation wedge")
+key.8,key.4=said("give me an echelon left") or said("form echelon left") or said("formation echelon left")
+key.8,key.5=said("give me an echelon right") or said("form echelon right") or said("formation echelon right")
+key.8,key.6=said("give me a V") or said("form V") or said("formation V")
+key.8,key.7=said("give me a line") or said("form line") or said("formation line")
+key.8,key.8=said("give me a compact column") or said("form compact column") or said("formation compact column")
+key.8,key.8=said("give me a compact") or said("form compact") or said("formation compact") or said("form file") or said ("formation file")
+key.8,key.9=said("give me a delta") or said("form delta") or said("formation delta")
+key.8,key.9=said("give me a diamond") or said("form diamond") or said("formation diamond")
+
+//movement
+key.Enter = said("Go there")
+key.Enter = said("Move there")
+key.Enter = said("Take that position")
+key.Enter = said("Go over there")
+key.Enter = said("Move over there")
+key.Enter = said("Move to that",1)
+key.Enter = said("Go to that",1)
+
+key.1,key.1 = said("stay in formation")
+key.1,key.1 = said("stay close")
+key.1,key.1 = said("keep formation")
+key.1,key.1 = said("return to formation")
+key.1,key.1 = said("back to formation")
+key.1,key.1 = said("regroup",4)
+key.1,key.1 = said("follow me")
+key.1,key.1 = said("get back",4)
+key.1,key.1 = said("fall back",5)
+key.1,key.1 = said("fall back to formation")
+key.1,key.1 = said("fall back into formation")
+key.1,key.1 = said("form up")
+key.1,key.1 = said("return",5)
+key.1,key.1 = said("form on me")
+
+key.1,key.2 = said("Advance",5) or said("Take point") or said ("Push up")
+key.1,key.3 = said("Stay back",5) or said("Go back",5) or said ("Stay behind") or said ("keep the distance")
+key.1,key.4 = said("Flank left") or said("Take the left flank")
+key.1,key.5 = said("Flank right") or said("Take the right flank")
+
+key.1,key.6 = said("Stop",5) or said("Halt",5) or said("Stay here",5)
+key.1,key.6 = said("Don't move") or said("Stay where you are") or said("Stay there",5)
+
+key.1,key.7 = said("Wait") or said("Wait for me",5) or said("Hold on",5)
+key.1,key.7 = said("Let me catch up")
+
+key.1,key.8 = said("Find cover") or said("Get to cover") or said("Take cover")
+
+key.1,key.9 = said("Next waypoint")
+key.1,key.9 = said("Move to next waypoint")
+key.1,key.9 = said("Go to next waypoint")
+key.1,key.9 = said("Proceed to next waypoint")
+
+//Team assignment
+key.9,key.1=said("Assign red") or said("You are red") or said("you're team red")
+key.9,key.2=said("Assign green") or said("You are green") or said("you're team green")
+key.9,key.3=said("Assign blue") or said("You are blue") or said("you're team blue")
+key.9,key.4=said("Assign yellow") or said("You are yellow") or said("you're team yellow")
+key.9,key.5=said("Assign white") or said("You are white") or said("you're team white")
+
+//Team selection
+key.9,key.9,key.1=said("Team red") or said("Red",5)
+key.9,key.9,key.2=said("Team green") or said("Green",5)
+key.9,key.9,key.3=said("Team blue") or said("Blue",5)
+key.9,key.9,key.4=said("Team yellow") or said("Yellow",5)
+key.9,key.9,key.5=said("Team white") or said("White",5)
+
+end if
