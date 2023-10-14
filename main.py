@@ -1,15 +1,10 @@
-# [check] Get control of keyboard and hit checks (check w/ virtual keyboard, text)
-# [check] Get input from microphone non-exclusively (is that even a thing) and hit keys on command
-# interpret language of PIE commands
 import threading
 from concurrent.futures import ThreadPoolExecutor
-from multiprocessing import Process, Lock
 from queue import Queue
 
 from pynput.keyboard import Key, Listener
 import pydirectinput
 import speech_recognition as sr
-from time import sleep
 from commands import COMMANDS, SUBJECTS
 
 CREDENTIALS_FILE = '.credentials'
