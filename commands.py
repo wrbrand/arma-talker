@@ -191,6 +191,8 @@ COMMANDS: dict[str, list[str]] = {
     "crouch": ["7", "7"],
     "stay crouched": ["7", "7"],
     "heads low": ["7", "7"],
+    "stay low": ["7", "7"],
+    "get low": ["7", "7"],
 
     "get down": ["7", "8"],
     "go prone": ["7", "8"],
