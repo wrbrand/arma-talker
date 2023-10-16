@@ -74,6 +74,7 @@ key.7,key.1=said("keep quiet",5)
 key.7,key.2=said("danger")
 key.7,key.2=said("get ready to fight")
 key.7,key.2=said("get ready for combat")
+key.7,key.2=said("let's get ready to rumble")
 
 key.7,key.3=said("stay aware") or said("be aware")
 key.7,key.3=said("stay frosty")
